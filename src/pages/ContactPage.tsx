@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
-import { CheckCircle, Mail, Phone, MapPin, ArrowRight, Clock } from 'lucide-react'
-import Navbar from '../components/Navbar'
+import { CheckCircle, ArrowRight } from 'lucide-react'
+import Navbar from '../components/navbar'
 import Footer from '../components/Footer'
 
 export default function ContactPage() {
@@ -58,36 +58,9 @@ export default function ContactPage() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.5, ease: "easeOut" },
+      transition: { duration: 0.5 },
     },
   }
-
-  const contactInfo = [
-    {
-      icon: Mail,
-      title: 'Email',
-      content: 'hello@visionwrapper.com',
-      link: 'mailto:hello@visionwrapper.com'
-    },
-    {
-      icon: Phone,
-      title: 'Phone',
-      content: '+1 (800) VISION-1',
-      link: 'tel:+18004874466'
-    },
-    {
-      icon: MapPin,
-      title: 'Address',
-      content: '123 Tech Street, San Francisco, CA 94105',
-      link: '#'
-    },
-    {
-      icon: Clock,
-      title: 'Response Time',
-      content: '24 hours on business days',
-      link: '#'
-    },
-  ]
 
   return (
     <div className="min-h-screen bg-background text-foreground">

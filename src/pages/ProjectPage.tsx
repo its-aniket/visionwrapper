@@ -1,7 +1,7 @@
 'use client'
-import React, { useState, useRef, useEffect } from 'react'
-import { motion, useTransform, useScroll } from 'framer-motion'
-import Navbar from '../components/Navbar'
+import React, { useState, useEffect } from 'react'
+import { motion } from 'framer-motion'
+import Navbar from '../components/navbar'
 import Footer from '../components/Footer'
 
 const projects = [
@@ -71,14 +71,6 @@ const projects = [
   },
 ];
 
-interface Project {
-  slug: string
-  title: string
-  description: string
-  src: string
-  category: string
-}
-
 interface RoundedButtonProps {
   children: React.ReactNode
   isActive: boolean
@@ -101,22 +93,11 @@ const RoundedButton: React.FC<RoundedButtonProps> = ({ children, isActive, onCli
 }
 
 const Projects: React.FC = () => {
-  const container = useRef<HTMLDivElement>(null)
-  const [loadedImages, setLoadedImages] = useState(new Set());
-  const { scrollYProgress } = useScroll({
-    target: container,
-    offset: ['start end', 'end start'],
-  })
-
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
 
   const [category, setCategory] = useState<string>('All')
-
-  const x1 = useTransform(scrollYProgress, [0, 1], [0, 150])
-  const x2 = useTransform(scrollYProgress, [0, 1], [0, -150])
-  const height = useTransform(scrollYProgress, [0, 0.9], [50, 0])
 
   const filteredProjects =
     category === 'All'
@@ -124,16 +105,14 @@ const Projects: React.FC = () => {
       : projects.filter((project) => project.category === category)
 
   const categories = ['All', 'Development', 'Automation', 'AI', 'Cloud', 'Analytics', 'Security']
-  const handleImageLoad = (id: number) => {
-    setLoadedImages((prev) => new Set([...prev, id]));
-  };
+
   return (
     <>
-      <main className="w-full flex flex-col mt-[50px] md:mt-[150px] gap-[3vw] relative bg-white z-10">
-        <Navbar />
+      <Navbar />
+      <main className="w-full flex flex-col mt-12 md:mt-40 gap-[3vw] relative bg-white z-10">
         <div className="flex flex-col relative">
           {/* Category Header */}
-          <div className="flex flex-col w-full px-6 md:px-[150px] py-[50px] overflow-hidden">
+          <div className="flex flex-col w-full px-6 md:px-40 py-12 overflow-hidden">
             <motion.span 
               initial={{ opacity: 0, y: '100%' }}
               animate={{ opacity: 1, y: 0 }}
@@ -146,12 +125,12 @@ const Projects: React.FC = () => {
               initial={{ opacity: 0, y: '100%' }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.2, ease: 'easeOut' }}
-              className="block mt-[10px] text-[calc(clamp(2.25em,7vw,6em)*0.875)] font-light text-[#1C1D20] leading-tight"
+              className="block mt-2.5 text-[calc(clamp(2.25em,7vw,6em)*0.875)] font-light text-[#1C1D20] leading-tight"
             >
               beyond walls.
             </motion.span>
 
-            <div className="flex w-full flex-wrap gap-4 mt-[60px] sm:justify-center md:justify-start ">
+            <div className="flex w-full flex-wrap gap-4 mt-15 sm:justify-center md:justify-start ">
               {categories.map((cat, index) => (
                 <RoundedButton
                   key={index}
@@ -166,7 +145,7 @@ const Projects: React.FC = () => {
 
           {/* Projects Grid */}
           <div
-            className="columns-1 p-[25px] sm:columns-2 md:columns-3 lg:columns-3 gap-6 [column-fill:_balance]"
+            className="columns-1 p-6 sm:columns-2 md:columns-3 lg:columns-3 gap-6 [column-fill:balance]"
             style={{ columnFill: 'balance' }}
           >
             {filteredProjects.map((project, index) => (
@@ -174,7 +153,7 @@ const Projects: React.FC = () => {
                 key={project.id}
                 layout
                 initial={{ opacity: 0 }}
-                animate={{ opacity: loadedImages.has(project.id) ? 1 : 0 }}
+                animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 className="break-inside-avoid mb-6"
               >
@@ -191,7 +170,7 @@ const Projects: React.FC = () => {
                       />
                       {/* Overlay */}
                       <div className="absolute w-full inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition-all duration-300 flex items-end justify-start">
-                        <div className="flex w-full items-start flex-col p-4 bg-gradient-to-t from-black/70 to-transparent text-white">
+                        <div className="flex w-full items-start flex-col p-4 bg-linear-to-t from-black/70 to-transparent text-white">
                           <h3 className="text-white text-xl font-bold text-left">{project.title}</h3>
                           <p className="text-white/80 text-sm mt-2 text-left">{project.category}</p>
                         </div>

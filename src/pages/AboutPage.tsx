@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import Navbar from '../components/Navbar'
+import Navbar from '../components/navbar'
 import About from '../components/About'
 import Footer from '../components/Footer'
 import Features from '../components/Features'

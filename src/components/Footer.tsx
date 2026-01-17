@@ -1,7 +1,7 @@
 
 import { useTheme } from '../context/ThemeContext'  
 export default function Footer() {
-  const { isDark, toggleTheme } = useTheme()
+  const { isDark } = useTheme()
   return (
     <footer className="bg-background border-t border-border pt-32 pb-16 px-6 md:px-12">
       <div className="container mx-auto">

@@ -81,7 +81,7 @@ export default function Services() {
                 <div className="p-6 md:p-8">
                   <span className="text-6xl font-heading font-bold text-muted-foreground/20 block mb-6">{service.number}</span>
                   <h2 className="text-4xl md:text-6xl font-bold font-heading mb-4 tracking-tighter">{service.title}</h2>
-                  <p className="text-xl font-medium text-foreground/60 mb-8 uppercase tracking-widest text-sm">{service.subtitle}</p>
+                  <p className="text-sm font-medium text-foreground/60 mb-8 uppercase tracking-widest">{service.subtitle}</p>
                   <p className="text-lg text-muted-foreground mb-12 leading-relaxed max-w-xl">{service.description}</p>
                   
                   <div className="space-y-4">

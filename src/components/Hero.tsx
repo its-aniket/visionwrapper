@@ -1,6 +1,7 @@
 import { ArrowRight } from 'lucide-react'
 import { motion } from 'framer-motion'
-import ParticleBackground from '/src/components/ParticleBackground'
+// @ts-ignore
+import ParticleBackground from './ParticleBackground.jsx'
 export default function Hero() {
   return (
     <section className="relative z-10 px-6 md:px-12 min-h-screen flex items-center pt-20 pb-20 overflow-hidden bg-background">
@@ -45,7 +46,7 @@ export default function Hero() {
         </motion.div>
 
         <motion.div 
-          className="relative h-[600px] w-full hidden lg:block rounded-3xl overflow-hidden p-6 md:p-8"
+          className="relative h-150 w-full hidden lg:block rounded-3xl overflow-hidden p-6 md:p-8"
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
