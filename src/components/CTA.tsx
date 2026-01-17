@@ -1,0 +1,401 @@
+import { motion } from 'framer-motion'
+import { useState } from 'react'
+import { CheckCircle, ArrowRight, User, Building2, Mail } from 'lucide-react'
+
+export default function CTA() {
+  const [formData, setFormData] = useState({
+    contactName: '',
+    companyName: '',
+    email: '',
+  })
+  const [submitted, setSubmitted] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [focusedField, setFocusedField] = useState<string | null>(null)
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }))
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setLoading(true)
+    
+    // Simulate form submission
+    setTimeout(() => {
+      setLoading(false)
+      setSubmitted(true)
+      setFormData({ contactName: '', companyName: '', email: '' })
+      
+      // Reset after 3 seconds
+      setTimeout(() => {
+        setSubmitted(false)
+      }, 3000)
+    }, 800)
+  }
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2,
+      },
+    },
+  }
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, ease: "easeOut" },
+    },
+  }
+
+  const fields = [
+    {
+      id: 'contactName',
+      label: 'Contact Person Name',
+      placeholder: 'John Doe',
+      icon: User,
+      type: 'text'
+    },
+    {
+      id: 'companyName',
+      label: 'Company Name',
+      placeholder: 'Your Company',
+      icon: Building2,
+      type: 'text'
+    },
+    {
+      id: 'email',
+      label: 'Email Address',
+      placeholder: 'john@company.com',
+      icon: Mail,
+      type: 'email'
+    },
+  ]
+
+  return (
+    <section id="contact" className="py-32 md:py-40 container mx-auto px-6 md:px-12">
+      <motion.div 
+        className="relative overflow-hidden rounded-3xl"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true, margin: "-100px" }}
+      >
+        {/* Gradient backgrounds */}
+        <div className="absolute inset-0 bg-gradient-to-br from-foreground via-foreground to-black rounded-3xl"></div>
+        <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
+        
+        {/* Content */}
+        <div className="relative z-10 max-w-6xl mx-auto p-16 md:p-24">
+          <motion.div
+            className="grid md:grid-cols-2 gap-16 items-center"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+          >
+            {/* Left side - Content */}
+            <motion.div className="text-background">
+              <motion.h2 
+                className="text-5xl md:text-6xl font-bold font-heading mb-6 leading-tight"
+                variants={itemVariants}
+              >
+                Ready to scale?
+              </motion.h2>
+              <motion.p 
+                className="text-lg opacity-85 mb-10 leading-relaxed"
+                variants={itemVariants}
+              >
+                Join over 500+ enterprise companies transforming their operations with Nexus.
+              </motion.p>
+
+              <motion.div
+                className="space-y-5"
+                variants={containerVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+              >
+                {[
+                  "24/7 Premium Support",
+                  "Custom Integration Solutions",
+                  "Dedicated Account Manager"
+                ].map((benefit, idx) => (
+                  <motion.div
+                    key={idx}
+                    className="flex items-center gap-4 group"
+                    variants={itemVariants}
+                  >
+                    <motion.div
+                      className="flex-shrink-0 w-6 h-6 rounded-full bg-green-400/20 flex items-center justify-center border border-green-400/40"
+                      whileHover={{ scale: 1.1 }}
+                    >
+                      <CheckCircle className="w-4 h-4 text-green-300" />
+                    </motion.div>
+                    <span className="text-base font-medium opacity-90 group-hover:opacity-100 transition-opacity">
+                      {benefit}
+                    </span>
+                  </motion.div>
+                ))}
+              </motion.div>
+            </motion.div>
+
+            {/* Right side - Form */}
+            <motion.div
+              variants={itemVariants}
+              className="relative"
+            >
+              {!submitted ? (
+                <motion.div
+                  className="relative group"
+                  whileHover={{ y: -5 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  {/* Form glow effect */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
+                  
+                  {/* Form container */}
+                  <div className="relative bg-background/10 backdrop-blur-xl rounded-2xl p-8 border border-white/20 hover:border-white/40 transition-all duration-300 shadow-2xl">
+                    <form onSubmit={handleSubmit} className="space-y-6">
+                      {fields.map((field, idx) => {
+                        const IconComponent = field.icon
+                        const value = formData[field.id as keyof typeof formData]
+                        const isFilled = value !== ''
+
+                        return (
+                          <motion.div
+                            key={field.id}
+                            initial={{ opacity: 0, x: -20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.4, delay: 0.05 + idx * 0.05 }}
+                            viewport={{ once: true }}
+                          >
+                            <motion.div
+                              className="relative group/field"
+                              animate={{ y: focusedField === field.id ? -4 : 0 }}
+                            >
+                              {/* Label */}
+                              <motion.label
+                                htmlFor={field.id}
+                                className="block text-sm font-semibold mb-3 text-background opacity-95 flex items-center gap-2"
+                              >
+                                <motion.div
+                                  animate={{
+                                    color: focusedField === field.id ? '#60a5fa' : '#ffffff'
+                                  }}
+                                  transition={{ duration: 0.2 }}
+                                >
+                                  <IconComponent className="w-4 h-4" />
+                                </motion.div>
+                                {field.label}
+                              </motion.label>
+
+                              {/* Input wrapper with animated border */}
+                              <div className="relative">
+                                {/* Animated background gradient */}
+                                <motion.div
+                                  className="absolute inset-0 bg-gradient-to-r from-blue-400/20 via-transparent to-purple-400/20 rounded-xl opacity-0 group-hover/field:opacity-100 transition-opacity duration-300"
+                                  animate={{
+                                    opacity: focusedField === field.id ? 0.3 : 0
+                                  }}
+                                ></motion.div>
+
+                                {/* Input field */}
+                                <motion.input
+                                  id={field.id}
+                                  type={field.type}
+                                  name={field.id}
+                                  value={value}
+                                  onChange={handleChange}
+                                  onFocus={() => setFocusedField(field.id)}
+                                  onBlur={() => setFocusedField(null)}
+                                  required
+                                  placeholder={field.placeholder}
+                                  className="relative w-full px-5 py-3.5 rounded-xl bg-white/8 border border-white/15 text-background placeholder:text-white/30 focus:outline-none transition-all duration-300 backdrop-blur-sm hover:bg-white/12 hover:border-white/25 focus:bg-white/15 focus:border-white/40"
+                                  whileFocus={{
+                                    boxShadow: "0 0 20px rgba(59, 130, 246, 0.3)"
+                                  }}
+                                />
+
+                                {/* Animated bottom border */}
+                                <motion.div
+                                  className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-blue-400 via-purple-400 to-blue-400 rounded-full"
+                                  animate={{
+                                    width: focusedField === field.id ? '100%' : '0%',
+                                    opacity: focusedField === field.id ? 1 : 0
+                                  }}
+                                  transition={{ duration: 0.3 }}
+                                ></motion.div>
+
+                                {/* Check icon when filled */}
+                                <motion.div
+                                  className="absolute right-4 top-1/2 transform -translate-y-1/2"
+                                  animate={{
+                                    opacity: isFilled && focusedField !== field.id ? 1 : 0,
+                                    scale: isFilled && focusedField !== field.id ? 1 : 0.8
+                                  }}
+                                  transition={{ duration: 0.2 }}
+                                >
+                                  <motion.div
+                                    className="w-5 h-5 rounded-full bg-green-400/20 border border-green-400 flex items-center justify-center"
+                                  >
+                                    <CheckCircle className="w-3.5 h-3.5 text-green-300" />
+                                  </motion.div>
+                                </motion.div>
+                              </div>
+
+                              {/* Helper text */}
+                              <motion.p
+                                className="text-xs opacity-50 mt-2 text-background/80"
+                                animate={{
+                                  opacity: focusedField === field.id ? 0.6 : 0.4
+                                }}
+                              >
+                                {field.id === 'email' ? 'We\'ll never share your email' : 'This helps us serve you better'}
+                              </motion.p>
+                            </motion.div>
+                          </motion.div>
+                        )
+                      })}
+
+                      {/* Submit Button */}
+                      <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.4, delay: 0.35 }}
+                        viewport={{ once: true }}
+                        className="pt-4"
+                      >
+                        <motion.button
+                          type="submit"
+                          disabled={loading}
+                          className="w-full relative group/btn overflow-hidden"
+                          whileHover={{ scale: 1.02 }}
+                          whileTap={{ scale: 0.98 }}
+                        >
+                          {/* Animated button background */}
+                          <motion.div
+                            className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-blue-500 rounded-xl"
+                            animate={{
+                              backgroundPosition: ['0% center', '100% center', '0% center']
+                            }}
+                            transition={{ duration: 3, repeat: Infinity }}
+                            style={{ backgroundSize: '200% 200%' }}
+                          ></motion.div>
+
+                          {/* Glow effect */}
+                          <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl opacity-0 group-hover/btn:opacity-100 blur-lg transition-opacity duration-300"></div>
+                          
+                          {/* Button content */}
+                          <div className="relative bg-background text-foreground px-6 py-3.5 rounded-xl font-semibold flex items-center justify-center gap-2 group-hover/btn:bg-background/95 transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed">
+                            <span>{loading ? 'Submitting...' : 'Get Started Now'}</span>
+                            {!loading && (
+                              <motion.div
+                                animate={{ x: [0, 4, 0] }}
+                                transition={{ duration: 1.5, repeat: Infinity }}
+                              >
+                                <ArrowRight className="w-4 h-4" />
+                              </motion.div>
+                            )}
+                            {loading && (
+                              <motion.div
+                                animate={{ rotate: 360 }}
+                                transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                              >
+                                <CheckCircle className="w-4 h-4" />
+                              </motion.div>
+                            )}
+                          </div>
+                        </motion.button>
+                      </motion.div>
+
+                      {/* Helper text */}
+                      <motion.p
+                        className="text-xs opacity-60 text-center text-background font-medium"
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        transition={{ duration: 0.4, delay: 0.4 }}
+                        viewport={{ once: true }}
+                      >
+                        ✓ We'll be in touch within 24 hours
+                      </motion.p>
+                    </form>
+                  </div>
+                </motion.div>
+              ) : (
+                <motion.div
+                  className="relative"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, type: "spring", stiffness: 100 }}
+                >
+                  {/* Success glow */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-green-400/20 to-blue-400/20 rounded-2xl blur-xl"></div>
+                  
+                  <div className="relative bg-background/10 backdrop-blur-xl rounded-2xl p-12 border border-green-400/30 text-center">
+                    <motion.div
+                      className="flex justify-center mb-6"
+                      initial={{ scale: 0, rotate: -180 }}
+                      animate={{ scale: 1, rotate: 0 }}
+                      transition={{ duration: 0.6, type: "spring", stiffness: 80 }}
+                    >
+                      <div className="relative">
+                        <motion.div
+                          className="absolute inset-0 bg-green-400/30 rounded-full blur-lg"
+                          animate={{ scale: [1, 1.2, 1] }}
+                          transition={{ duration: 2, repeat: Infinity }}
+                        ></motion.div>
+                        <CheckCircle className="w-20 h-20 text-green-400 relative" />
+                      </div>
+                    </motion.div>
+
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: 0.3 }}
+                    >
+                      <h3 className="text-3xl font-bold font-heading mb-3 text-background">
+                        Thank You!
+                      </h3>
+                      <p className="text-background/80 text-base leading-relaxed">
+                        We've received your information and will contact you shortly. Get ready to transform your business!
+                      </p>
+                    </motion.div>
+
+                    {/* Animated checkmarks */}
+                    <motion.div
+                      className="flex gap-2 justify-center mt-6 opacity-50"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ duration: 0.5, delay: 0.6 }}
+                    >
+                      {[0, 1, 2].map((i) => (
+                        <motion.div
+                          key={i}
+                          animate={{ y: [0, -4, 0] }}
+                          transition={{ duration: 0.8, delay: i * 0.1, repeat: Infinity }}
+                        >
+                          <CheckCircle className="w-5 h-5 text-green-400" />
+                        </motion.div>
+                      ))}
+                    </motion.div>
+                  </div>
+                </motion.div>
+              )}
+            </motion.div>
+          </motion.div>
+        </div>
+      </motion.div>
+    </section>
+  )
+}

@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+  
+}
+
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  src: url('/fonts/PlusJakartaSans-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  src: url('/fonts/PlusJakartaSans-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-display: swap;
+}
+
+@theme {
+  --color-background: #ffffff;
+  --color-foreground: #000000;
+  --color-border: #e5e5e5;
+  --color-secondary: #f5f5f5;
+  --color-muted-foreground: #666666;
+  --color-primary: #000000;
+  --color-primary-foreground: #ffffff;
+  --color-primary-border: #d8d8d8;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  .dark {
+    --color-background: #131313;
+    --color-foreground: #ffffff;
+    --color-border: #333333;
+    --color-secondary: #262626;
+    --color-muted-foreground: #999999;
+    --color-primary: #ffffff;
+    --color-primary-foreground: #131313;
+    --color-primary-border: #4d4d4d;
+  }
+}
+
+@layer components {
+  .font-heading {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  .hover-elevate {
+    @apply transition-transform hover:-translate-y-0.5;
+  }
+
+  .active-elevate-2 {
+    @apply active:translate-y-0.5;
+  }
+}
