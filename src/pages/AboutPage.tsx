@@ -10,7 +10,7 @@ export default function AboutPage() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen px-[4%] bg-background text-foreground">
       <Navbar />
       <main>
         <About />

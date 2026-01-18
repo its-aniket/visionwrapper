@@ -58,7 +58,7 @@ export default function About() {
             transition={{ duration: 0.6, delay: 0.1 }}
             viewport={{ once: true }}
           >
-            Bring Order to <span className="text-muted-foreground">Digital Chaos.</span>
+            Clarity Over<span className="text-muted-foreground"> Complexity.</span>
           </motion.h1>
           
           <motion.p 
