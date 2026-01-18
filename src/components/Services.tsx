@@ -13,7 +13,7 @@ const services = [
       'Effortless Scaling: Cloud-ready solutions with CI/CD.'
     ],
     icon: Code,
-    image: '/src/assets/services/web.png'
+    image: '/services/web.png'
   },
   {
     number: '02',
@@ -26,7 +26,7 @@ const services = [
       'Custom Solutions: Tailored scripts for unique challenges.'
     ],
     icon: Workflow,
-    image: '/src/assets/services/automation.png'
+    image: '/services/automation.png'
   },
   {
     number: '03',
@@ -39,7 +39,7 @@ const services = [
       'Visual Intelligence: Advanced image recognition systems.'
     ],
     icon: Brain,
-    image: '/src/assets/services/neural_ai.png'
+    image: '/services/neural_ai.png'
   },
   {
     number: '04',
@@ -52,7 +52,7 @@ const services = [
       'Data-Driven Answers: AI grounded in your private data.'
     ],
     icon: Bot,
-    image: '/src/assets/services/agentic_ai.png'
+    image: '/services/agentic_ai.png'
   }
 ]
 

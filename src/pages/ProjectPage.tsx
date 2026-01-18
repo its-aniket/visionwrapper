@@ -10,7 +10,7 @@ const projects = [
     slug: 'web-app-development',
     title: 'Web Application Development',
     description: 'Building scalable and high-performance web applications tailored to your needs.',
-    image: '/images/projects/web-app.jpg',
+    image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=500&h=500&fit=crop',
     category: 'Development',
   },
   {
@@ -18,7 +18,7 @@ const projects = [
     slug: 'workflow-automation',
     title: 'Workflow Automation',
     description: 'Streamlining operations with intelligent automation solutions.',
-    image: '/images/projects/automation.jpg',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&h=500&fit=crop',
     category: 'Automation',
   },
   {
@@ -26,7 +26,7 @@ const projects = [
     slug: 'ai-ml-solutions',
     title: 'AI & ML Solutions',
     description: 'Custom AI models to unlock insights and drive smarter decisions.',
-    image: '/images/projects/ai-ml.jpg',
+    image: 'https://images.unsplash.com/photo-1677442d019cecf16e31293f13ee27ecc0adc4374?w=500&h=500&fit=crop',
     category: 'AI',
   },
   {
@@ -34,7 +34,7 @@ const projects = [
     slug: 'chatbot-integration',
     title: 'Chatbot Integration',
     description: 'Enhancing customer interactions with advanced AI-driven chatbots.',
-    image: '/images/projects/chatbot.jpg',
+    image: 'https://images.unsplash.com/photo-1526374965328-7f5ae4e8e49e?w=500&h=500&fit=crop',
     category: 'AI',
   },
   {
@@ -42,7 +42,7 @@ const projects = [
     slug: 'cloud-deployment',
     title: 'Cloud Deployment',
     description: 'Deploying secure and scalable solutions on cloud platforms.',
-    image: '/images/projects/cloud.jpg',
+    image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=500&h=500&fit=crop',
     category: 'Cloud',
   },
   {
@@ -50,7 +50,7 @@ const projects = [
     slug: 'data-analytics',
     title: 'Data Analytics',
     description: 'Transforming raw data into actionable insights.',
-    image: '/images/projects/data-analytics.jpg',
+    image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=500&h=500&fit=crop',
     category: 'Analytics',
   },
   {
@@ -58,7 +58,7 @@ const projects = [
     slug: 'mobile-app-development',
     title: 'Mobile App Development',
     description: 'Creating user-friendly mobile applications for iOS and Android.',
-    image: '/images/projects/mobile-app.jpg',
+    image: 'https://images.unsplash.com/photo-1512941691920-25bda97b0ecc?w=500&h=500&fit=crop',
     category: 'Development',
   },
   {
@@ -66,7 +66,7 @@ const projects = [
     slug: 'cybersecurity-solutions',
     title: 'Cybersecurity Solutions',
     description: 'Ensuring robust security for your digital assets.',
-    image: '/images/projects/cybersecurity.jpg',
+    image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=500&h=500&fit=crop',
     category: 'Security',
   },
 ];

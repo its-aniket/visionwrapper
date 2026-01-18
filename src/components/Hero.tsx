@@ -46,16 +46,16 @@ export default function Hero() {
         </motion.div>
 
         <motion.div 
-          className="relative h-150 w-full hidden lg:block rounded-3xl overflow-hidden p-6 md:p-8"
+          className="relative rounded-2xl h-150 w-full hidden lg:block rounded-3xl overflow-hidden p-6 md:p-8"
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <div className="absolute inset-0 bg-linear-to-tr from-background via-transparent to-transparent z-10 opacity-40"></div>
+          <div className="absolute rounded-2xl inset-0 bg-linear-to-tr from-background via-transparent to-transparent z-10 opacity-40"></div>
           <motion.img 
             alt="Abstract Architecture" 
             className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 ease-in-out scale-105 hover:scale-100" 
-            src="/src/assets/homepage/hero.png"
+            src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=600&fit=crop"
             whileHover={{ scale: 1.02 }}
           />
         </motion.div>
