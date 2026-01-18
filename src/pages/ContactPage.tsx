@@ -65,39 +65,39 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Navbar />
-      <main className="pt-32 pb-20">
+      <main className="pt-20 sm:pt-24 md:pt-32 pb-12 sm:pb-16 md:pb-20">
         {/* Hero Section */}
         <motion.div
-          className="container mx-auto px-6 mb-24"
+          className="container mx-auto px-4 sm:px-6 md:px-12 mb-16 sm:mb-20 md:mb-24"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
         >
           <motion.div variants={itemVariants} className="max-w-3xl">
             <motion.div
-              className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full bg-primary/10 border border-primary/20"
+              className="inline-flex items-center gap-2 mb-4 sm:mb-6 px-3 sm:px-4 py-2 rounded-full bg-primary/10 border border-primary/20"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.4 }}
             >
               <div className="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
-              <span className="text-sm font-medium text-primary">We're here to help</span>
+              <span className="text-xs sm:text-sm font-medium text-primary">We're here to help</span>
             </motion.div>
-            <h1 className="text-5xl md:text-7xl font-bold font-heading mb-6 leading-tight">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold font-heading mb-4 sm:mb-6 leading-tight">
               Let's Build Something <span className="bg-gradient-to-r from-primary to-primary bg-clip-text text-transparent">Amazing</span>
             </h1>
-            <p className="text-xl text-muted-foreground leading-relaxed">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground leading-relaxed">
               Have questions about VisionWrapper? Our team is ready to discuss how we can help transform your business. Reach out and let's start a conversation.
             </p>
           </motion.div>
         </motion.div>
 
-        <div className="container mx-auto px-6">
+        <div className="container mx-auto px-4 sm:px-6 md:px-12">
           {/* Contact Info Cards */}
           
 
           {/* Form and Info Split Layout */}
-          <div className="grid lg:grid-cols-3 gap-12 mb-24 items-start">
+          <div className="grid lg:grid-cols-3 gap-8 sm:gap-10 md:gap-12 mb-16 sm:mb-20 md:mb-24 items-start">
             {/* Contact Form */}
             <motion.div
               variants={itemVariants}
@@ -111,20 +111,20 @@ export default function ContactPage() {
                 <div className="absolute -inset-1  to-primary/20 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
                 
                 {/* Form container */}
-                <div className="relative bg-secondary rounded-3xl p-10 md:p-12 border border-border group-hover:border-primary/40 transition-all duration-300 backdrop-blur-sm">
+                <div className="relative bg-secondary rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 lg:p-12 border border-border group-hover:border-primary/40 transition-all duration-300 backdrop-blur-sm">
                   {!submitted ? (
-                    <form onSubmit={handleSubmit} className="space-y-6">
-                      <h3 className="text-2xl font-bold font-heading mb-8">Send us a Message</h3>
+                    <form onSubmit={handleSubmit} className="space-y-5 sm:space-y-6">
+                      <h3 className="text-xl sm:text-2xl font-bold font-heading mb-6 sm:mb-8">Send us a Message</h3>
 
                       <motion.div
-                        className="grid md:grid-cols-2 gap-6"
+                        className="grid md:grid-cols-2 gap-4 sm:gap-6"
                         variants={containerVariants}
                         initial="hidden"
                         animate="visible"
                       >
                         {/* Name */}
                         <motion.div variants={itemVariants}>
-                          <label htmlFor="name" className="block text-sm font-semibold mb-3">
+                          <label htmlFor="name" className="block text-xs sm:text-sm font-semibold mb-2 sm:mb-3">
                             Full Name *
                           </label>
                           <motion.div
@@ -141,10 +141,10 @@ export default function ContactPage() {
                               onBlur={() => setFocusedField(null)}
                               required
                               placeholder="John Doe"
-                              className="w-full px-5 py-3.5 rounded-xl bg-background border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all duration-300 hover:bg-background/80"
+                              className="w-full px-4 sm:px-5 py-2.5 sm:py-3.5 rounded-xl bg-background border border-border text-foreground placeholder:text-muted-foreground text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all duration-300 hover:bg-background/80"
                             />
                             <motion.div
-                              className="absolute bottom-0 left-0 h-0.5  rounded-full"
+                              className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-primary to-purple-600 rounded-full"
                               animate={{
                                 width: focusedField === 'name' ? '100%' : '0%',
                                 opacity: focusedField === 'name' ? 1 : 0
@@ -156,7 +156,7 @@ export default function ContactPage() {
 
                         {/* Email */}
                         <motion.div variants={itemVariants}>
-                          <label htmlFor="email" className="block text-sm font-semibold mb-3">
+                          <label htmlFor="email" className="block text-xs sm:text-sm font-semibold mb-2 sm:mb-3">
                             Email Address *
                           </label>
                           <motion.div
@@ -173,7 +173,7 @@ export default function ContactPage() {
                               onBlur={() => setFocusedField(null)}
                               required
                               placeholder="john@company.com"
-                              className="w-full px-5 py-3.5 rounded-xl bg-background border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all duration-300 hover:bg-background/80"
+                              className="w-full px-4 sm:px-5 py-2.5 sm:py-3.5 rounded-xl bg-background border border-border text-foreground placeholder:text-muted-foreground text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all duration-300 hover:bg-background/80"
                             />
                             <motion.div
                               className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-primary to-purple-600 rounded-full"
@@ -189,7 +189,7 @@ export default function ContactPage() {
 
                       {/* Company */}
                       <motion.div variants={itemVariants}>
-                        <label htmlFor="company" className="block text-sm font-semibold mb-3">
+                        <label htmlFor="company" className="block text-xs sm:text-sm font-semibold mb-2 sm:mb-3">
                           Company Name
                         </label>
                         <motion.div
@@ -205,7 +205,7 @@ export default function ContactPage() {
                             onFocus={() => setFocusedField('company')}
                             onBlur={() => setFocusedField(null)}
                             placeholder="Your Company"
-                            className="w-full px-5 py-3.5 rounded-xl bg-background border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all duration-300 hover:bg-background/80"
+                            className="w-full px-4 sm:px-5 py-2.5 sm:py-3.5 rounded-xl bg-background border border-border text-foreground placeholder:text-muted-foreground text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all duration-300 hover:bg-background/80"
                           />
                           <motion.div
                             className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-primary to-purple-600 rounded-full"
@@ -220,7 +220,7 @@ export default function ContactPage() {
 
                       {/* Message */}
                       <motion.div variants={itemVariants}>
-                        <label htmlFor="message" className="block text-sm font-semibold mb-3">
+                        <label htmlFor="message" className="block text-xs sm:text-sm font-semibold mb-2 sm:mb-3">
                           Message *
                         </label>
                         <motion.div
@@ -237,7 +237,7 @@ export default function ContactPage() {
                             required
                             placeholder="Tell us more about your inquiry..."
                             rows={5}
-                            className="w-full px-5 py-3.5 rounded-xl bg-background border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all duration-300 resize-none hover:bg-background/80"
+                            className="w-full px-4 sm:px-5 py-2.5 sm:py-3.5 rounded-xl bg-background border border-border text-foreground placeholder:text-muted-foreground text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all duration-300 resize-none hover:bg-background/80"
                           />
                           <motion.div
                             className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-primary to-purple-600 rounded-full"
@@ -257,10 +257,10 @@ export default function ContactPage() {
                         variants={itemVariants}
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
-                        className="w-full relative group/btn overflow-hidden mt-8"
+                        className="w-full relative group/btn overflow-hidden mt-6 sm:mt-8"
                       >
                         <div className="absolute inset-0 bg-gradient-to-r from-primary to-purple-600 rounded-xl opacity-0 group-hover/btn:opacity-100 blur-lg transition-opacity duration-300"></div>
-                        <div className="relative bg-primary text-primary-foreground px-6 py-4 rounded-xl font-semibold flex items-center justify-center gap-2 hover:bg-primary/90 transition-colors disabled:opacity-70 disabled:cursor-not-allowed group-hover/btn:shadow-lg">
+                        <div className="relative bg-primary text-primary-foreground px-4 sm:px-6 py-2.5 sm:py-4 rounded-xl font-semibold text-sm sm:text-base flex items-center justify-center gap-2 hover:bg-primary/90 transition-colors disabled:opacity-70 disabled:cursor-not-allowed group-hover/btn:shadow-lg">
                           <span>{loading ? 'Sending Message...' : 'Send Message'}</span>
                           {!loading && (
                             <motion.div
@@ -275,7 +275,7 @@ export default function ContactPage() {
                     </form>
                   ) : (
                     <motion.div
-                      className="flex flex-col items-center justify-center py-12 text-center"
+                      className="flex flex-col items-center justify-center py-8 sm:py-12 text-center"
                       initial={{ opacity: 0, scale: 0.9 }}
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ duration: 0.5, type: "spring", stiffness: 100 }}

@@ -81,7 +81,7 @@ const RoundedButton: React.FC<RoundedButtonProps> = ({ children, isActive, onCli
   return (
     <button
       onClick={onClick}
-      className={`px-6 py-3 rounded-full transition-all duration-300 ${
+      className={`px-3 sm:px-6 py-2 sm:py-3 rounded-full transition-all duration-300 text-xs sm:text-sm ${
         isActive
           ? 'bg-gray-900 text-white'
           : 'bg-white text-gray-900 border border-gray-200 hover:bg-gray-100'
@@ -109,15 +109,15 @@ const Projects: React.FC = () => {
   return (
     <>
       <Navbar />
-      <main className="w-full flex flex-col mt-12 md:mt-40 gap-[3vw] relative bg-white z-10">
+      <main className="w-full flex flex-col mt-8 sm:mt-12 md:mt-40 gap-[3vw] relative bg-white z-10">
         <div className="flex flex-col relative">
           {/* Category Header */}
-          <div className="flex flex-col w-full px-6 md:px-40 py-12 overflow-hidden">
+          <div className="flex flex-col w-full px-4 sm:px-6 md:px-12 lg:px-40 py-8 sm:py-12 overflow-hidden">
             <motion.span 
               initial={{ opacity: 0, y: '100%' }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, ease: 'easeOut' }}
-              className="block text-[calc(clamp(2.25em,7vw,6em)*0.875)] font-light text-[#1C1D20] leading-tight"
+              className="block text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-[#1C1D20] leading-tight"
             >
               Architecture that speaks
             </motion.span>
@@ -125,19 +125,19 @@ const Projects: React.FC = () => {
               initial={{ opacity: 0, y: '100%' }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.2, ease: 'easeOut' }}
-              className="block mt-2.5 text-[calc(clamp(2.25em,7vw,6em)*0.875)] font-light text-[#1C1D20] leading-tight"
+              className="block mt-2 sm:mt-2.5 text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-[#1C1D20] leading-tight"
             >
               beyond walls.
             </motion.span>
 
-            <div className="flex w-full flex-wrap gap-4 mt-15 sm:justify-center md:justify-start ">
+            <div className="flex w-full flex-wrap gap-2 sm:gap-3 md:gap-4 mt-8 sm:mt-12 md:mt-15 sm:justify-center md:justify-start ">
               {categories.map((cat, index) => (
                 <RoundedButton
                   key={index}
                   isActive={category === cat}
                   onClick={() => setCategory(cat)}
                 >
-                  <p>{cat}</p>
+                  <p className="text-xs sm:text-sm">{cat}</p>
                 </RoundedButton>
               ))}
             </div>
@@ -145,7 +145,7 @@ const Projects: React.FC = () => {
 
           {/* Projects Grid */}
           <div
-            className="columns-1 p-6 sm:columns-2 md:columns-3 lg:columns-3 gap-6 [column-fill:balance]"
+            className="columns-1 p-4 sm:p-6 md:p-8 sm:columns-2 md:columns-3 lg:columns-3 gap-4 sm:gap-6 [column-fill:balance]"
             style={{ columnFill: 'balance' }}
           >
             {filteredProjects.map((project, index) => (
@@ -155,10 +155,10 @@ const Projects: React.FC = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className="break-inside-avoid mb-6"
+                className="break-inside-avoid mb-4 sm:mb-6"
               >
                 <a key={index} href={`/projects/${project.slug}`} >
-                  <div className="relative group rounded-xl overflow-hidden bg-white shadow-lg hover:shadow-xl transition-all duration-300">
+                  <div className="relative group rounded-lg sm:rounded-xl overflow-hidden bg-white shadow-md sm:shadow-lg hover:shadow-xl transition-all duration-300">
                     <div className="relative">
                       <img
                         src={project.image}
@@ -166,13 +166,13 @@ const Projects: React.FC = () => {
                         width={500}
                         height={500}
                         sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                        className="object-cover transition-transform duration-300 group-hover:scale-105"
+                        className="object-cover w-full h-auto transition-transform duration-300 group-hover:scale-105"
                       />
                       {/* Overlay */}
                       <div className="absolute w-full inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition-all duration-300 flex items-end justify-start">
-                        <div className="flex w-full items-start flex-col p-4 bg-linear-to-t from-black/70 to-transparent text-white">
-                          <h3 className="text-white text-xl font-bold text-left">{project.title}</h3>
-                          <p className="text-white/80 text-sm mt-2 text-left">{project.category}</p>
+                        <div className="flex w-full items-start flex-col p-3 sm:p-4 bg-linear-to-t from-black/70 to-transparent text-white">
+                          <h3 className="text-white text-base sm:text-lg md:text-xl font-bold text-left line-clamp-2">{project.title}</h3>
+                          <p className="text-white/80 text-xs sm:text-sm mt-1 sm:mt-2 text-left">{project.category}</p>
                         </div>
                       </div>
                     </div>

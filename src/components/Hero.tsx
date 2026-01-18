@@ -4,38 +4,38 @@ import { motion } from 'framer-motion'
 import ParticleBackground from './ParticleBackground.jsx'
 export default function Hero() {
   return (
-    <section className="relative z-10 px-6 md:px-12 min-h-screen flex items-center pt-20 pb-20 overflow-hidden bg-background">
+    <section className="relative z-10 px-4 sm:px-6 md:px-12 min-h-screen flex items-center pt-24 sm:pt-28 pb-12 sm:pb-20 overflow-hidden bg-background">
     <ParticleBackground />
-      <div className="container mx-auto px-6 md:px-12 grid lg:grid-cols-2 gap-16 items-center">
+      <div className="container mx-auto px-4 sm:px-6 md:px-12 grid lg:grid-cols-2 gap-8 md:gap-16 items-center">
         <motion.div 
-          className="relative z-10 p-8 md:p-12"
+          className="relative z-10 p-4 sm:p-6 md:p-12"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <div className="inline-block px-6 py-2 mb-8 border border-border rounded-full bg-secondary/50 backdrop-blur-sm">
+          <div className="inline-block px-4 sm:px-6 py-2 mb-6 sm:mb-8 border border-border rounded-full bg-secondary/50 backdrop-blur-sm">
             <span className="text-xs font-semibold tracking-wider uppercase">Clearity over complexity</span>
           </div>
           
-          <h1 className="text-5xl md:text-7xl font-bold font-heading leading-[1.1] mb-8 tracking-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold font-heading leading-[1.1] mb-6 sm:mb-8 tracking-tight">
             Bring Order<br />
             <span className="text-muted-foreground">To Digital Chaos.</span>
           </h1>
           
-          <p className="text-lg text-muted-foreground max-w-md mb-12 leading-relaxed">
+          <p className="text-base sm:text-lg text-muted-foreground max-w-md mb-8 sm:mb-12 leading-relaxed">
             As businesses grow, tools fragment and systems break. VisionWrapper designs cohesive digital systems that scale without complexity.
           </p>
           
-          <div className="flex flex-wrap gap-4">
+          <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
             <motion.button 
-              className="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:opacity-90 bg-primary text-primary-foreground border border-primary-border min-h-10 rounded-full px-8 text-base h-12"
+              className="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:opacity-90 bg-primary text-primary-foreground border border-primary-border min-h-10 rounded-full px-6 sm:px-8 text-sm sm:text-base h-11 sm:h-12"
               whileHover={{ y: -2 }}
               whileTap={{ y: 0 }}
             >
               Start Project
             </motion.button>
             <motion.button 
-              className="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:opacity-90 border border-border shadow-xs min-h-10 rounded-full px-8 text-base h-12 group"
+              className="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:opacity-90 border border-border shadow-xs min-h-10 rounded-full px-6 sm:px-8 text-sm sm:text-base h-11 sm:h-12 group"
               whileHover={{ y: -2 }}
               whileTap={{ y: 0 }}
             >
@@ -46,7 +46,7 @@ export default function Hero() {
         </motion.div>
 
         <motion.div 
-          className="relative rounded-2xl h-150 w-full hidden lg:block rounded-3xl overflow-hidden p-6 md:p-8"
+          className="relative h-80 sm:h-96 md:h-150 w-full hidden lg:block rounded-3xl overflow-hidden p-4 sm:p-6 md:p-8"
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}

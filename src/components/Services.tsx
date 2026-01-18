@@ -58,13 +58,13 @@ const services = [
 
 export default function Services() {
   return (
-    <section id="services" className="bg-background py-24 md:py-32">
-      <div className="container mx-auto px-6 md:px-12">
+    <section id="services" className="bg-background py-12 sm:py-20 md:py-32">
+      <div className="container mx-auto px-4 sm:px-6 md:px-12">
         <div className="relative">
           {services.map((service, idx) => (
             <motion.div 
               key={idx} 
-              className="min-h-screen flex items-center py-24 border-b border-border/50 last:border-0 sticky top-0 bg-background"
+              className="min-h-auto sm:min-h-screen flex items-center py-12 sm:py-20 md:py-24 border-b border-border/50 last:border-0 sticky top-0 bg-background"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -72,22 +72,22 @@ export default function Services() {
               viewport={{ margin: "-100px" }}
             >
               <motion.div 
-                className="grid lg:grid-cols-2 gap-16 items-center w-full p-8 md:p-12"
+                className="grid lg:grid-cols-2 gap-6 sm:gap-8 md:gap-16 items-center w-full p-4 sm:p-6 md:p-12"
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true, margin: "-100px" }}
               >
-                <div className="p-6 md:p-8">
-                  <span className="text-6xl font-heading font-bold text-muted-foreground/20 block mb-6">{service.number}</span>
-                  <h2 className="text-4xl md:text-6xl font-bold font-heading mb-4 tracking-tighter">{service.title}</h2>
-                  <p className="text-sm font-medium text-foreground/60 mb-8 uppercase tracking-widest">{service.subtitle}</p>
-                  <p className="text-lg text-muted-foreground mb-12 leading-relaxed max-w-xl">{service.description}</p>
+                <div className="p-4 sm:p-6 md:p-8">
+                  <span className="text-4xl sm:text-5xl md:text-6xl font-heading font-bold text-muted-foreground/20 block mb-4 sm:mb-6">{service.number}</span>
+                  <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold font-heading mb-3 sm:mb-4 tracking-tighter">{service.title}</h2>
+                  <p className="text-xs sm:text-sm font-medium text-foreground/60 mb-6 sm:mb-8 uppercase tracking-widest">{service.subtitle}</p>
+                  <p className="text-base sm:text-lg text-muted-foreground mb-8 sm:mb-12 leading-relaxed max-w-xl">{service.description}</p>
                   
-                  <div className="space-y-4">
+                  <div className="space-y-3 sm:space-y-4">
                     {service.points.map((point, i) => (
-                      <div key={i} className="flex items-center gap-3 text-foreground/80">
-                        <ChevronRight className="w-4 h-4 text-primary" />
+                      <div key={i} className="flex items-start gap-2 sm:gap-3 text-foreground/80 text-sm sm:text-base">
+                        <ChevronRight className="w-4 h-4 text-primary shrink-0 mt-0.5" />
                         <span className="text-sm font-medium">{point}</span>
                       </div>
                     ))}

@@ -82,45 +82,46 @@ export default function CTA() {
   ]
 
   return (
-    <section id="contact" className="py-32 md:py-40 container mx-auto px-6 md:px-12">
+    <section id="contact" className="py-20 sm:py-32 md:py-40 container mx-auto px-4 sm:px-6 md:px-12">
       <motion.div 
-        className="relative overflow-hidden rounded-3xl"
+        className="relative overflow-hidden rounded-2xl sm:rounded-3xl"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: true, margin: "-100px" }}
       >
         {/* Gradient backgrounds */}
-        <div className="absolute inset-0 bg-gradient-to-br from-foreground via-foreground to-black rounded-3xl"></div>
+        <div className="absolute inset-0 hidden sm:block bg-linear-to-br from-foreground via-foreground to-black rounded-2xl sm:rounded-3xl"></div>
+        <div className="absolute inset-0 sm:hidden bg-white rounded-2xl sm:rounded-3xl"></div>
         <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
         
         {/* Content */}
-        <div className="relative z-10 max-w-6xl mx-auto p-16 md:p-24">
+        <div className="relative z-10 max-w-6xl mx-auto p-6 sm:p-12 md:p-16 lg:p-24">
           <motion.div
-            className="grid md:grid-cols-2 gap-16 items-center"
+            className="grid md:grid-cols-2 gap-8 sm:gap-12 md:gap-16 items-center"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
           >
             {/* Left side - Content */}
-            <motion.div className="text-background">
+            <motion.div className="text-background sm:text-background text-foreground">
               <motion.h2 
-                className="text-5xl md:text-6xl font-bold font-heading mb-6 leading-tight"
+                className="text-3xl text-black sm:text-4xl md:text-5xl lg:text-6xl font-bold font-heading mb-4 sm:mb-6 leading-tight"
                 variants={itemVariants}
               >
                 Ready to scale?
               </motion.h2>
               <motion.p 
-                className="text-lg opacity-85 mb-10 leading-relaxed"
+                className="text-sm text-black sm:text-base md:text-lg opacity-85 mb-8 sm:mb-10 leading-relaxed"
                 variants={itemVariants}
               >
                 Join over 500+ enterprise companies transforming their operations with Nexus.
               </motion.p>
 
               <motion.div
-                className="space-y-5"
+                className="space-y-4 sm:space-y-5"
                 variants={containerVariants}
                 initial="hidden"
                 whileInView="visible"
@@ -133,16 +134,16 @@ export default function CTA() {
                 ].map((benefit, idx) => (
                   <motion.div
                     key={idx}
-                    className="flex items-center gap-4 group"
+                    className="flex items-center gap-3 sm:gap-4 group"
                     variants={itemVariants}
                   >
                     <motion.div
                       className="flex-shrink-0 w-6 h-6 rounded-full bg-green-400/20 flex items-center justify-center border border-green-400/40"
                       whileHover={{ scale: 1.1 }}
                     >
-                      <CheckCircle className="w-4 h-4 text-green-300" />
+                        <CheckCircle className="w-4 h-4 text-green-600 sm:text-green-300" />
                     </motion.div>
-                    <span className="text-base font-medium opacity-90 group-hover:opacity-100 transition-opacity">
+                    <span className="text-sm text-black sm:text-base font-medium opacity-90 group-hover:opacity-100 transition-opacity">
                       {benefit}
                     </span>
                   </motion.div>
@@ -165,8 +166,8 @@ export default function CTA() {
                   <div className="absolute inset-0 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
                   
                   {/* Form container */}
-                  <div className="relative bg-background/10 backdrop-blur-xl rounded-2xl p-8 border border-white/20 hover:border-white/40 transition-all duration-300 shadow-2xl">
-                    <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="relative bg-background/10 backdrop-blur-xl rounded-2xl p-6 sm:p-8 border border-white/20 hover:border-white/40 transition-all duration-300 shadow-2xl">
+                    <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
                       {fields.map((field, idx) => {
                         const IconComponent = field.icon
                         const value = formData[field.id as keyof typeof formData]
@@ -187,29 +188,21 @@ export default function CTA() {
                               {/* Label */}
                               <motion.label
                                 htmlFor={field.id}
-                                className="block text-sm font-semibold mb-3 text-background opacity-95 flex items-center gap-2"
+                                className="text-xs sm:text-sm font-semibold mb-2 sm:mb-3 text-background opacity-95 flex items-center gap-2"
                               >
                                 <motion.div
                                   animate={{
-                                    color: focusedField === field.id ? '#60a5fa' : '#ffffff'
+                                    color: focusedField === field.id ? '#60a5fa' : '#000000'
                                   }}
                                   transition={{ duration: 0.2 }}
                                 >
-                                  <IconComponent className="w-4 h-4" />
+                                  <IconComponent className="w-4 h-4 sm:text-white" />
                                 </motion.div>
                                 {field.label}
                               </motion.label>
 
                               {/* Input wrapper with animated border */}
                               <div className="relative">
-                                {/* Animated background gradient */}
-                                <motion.div
-                                  className="absolute inset-0 bg-gradient-to-r from-blue-400/20 via-transparent to-purple-400/20 rounded-xl opacity-0 group-hover/field:opacity-100 transition-opacity duration-300"
-                                  animate={{
-                                    opacity: focusedField === field.id ? 0.3 : 0
-                                  }}
-                                ></motion.div>
-
                                 {/* Input field */}
                                 <motion.input
                                   id={field.id}
@@ -221,7 +214,7 @@ export default function CTA() {
                                   onBlur={() => setFocusedField(null)}
                                   required
                                   placeholder={field.placeholder}
-                                  className="relative w-full px-5 py-3.5 rounded-xl bg-white/8 border border-white/15 text-background placeholder:text-white/30 focus:outline-none transition-all duration-300 backdrop-blur-sm hover:bg-white/12 hover:border-white/25 focus:bg-white/15 focus:border-white/40"
+                                  className="relative w-full px-4 sm:px-5 py-2.5 sm:py-3.5 rounded-xl bg-white/0 sm:bg-white/25 border border-gray-300 sm:border-white/50 text-foreground sm:text-background placeholder:text-gray-500 sm:placeholder:text-white/70 text-sm sm:text-base focus:outline-none transition-all duration-300 backdrop-blur-sm hover:bg-white/0 sm:hover:bg-white/30 hover:border-gray-400 sm:hover:border-white/60 focus:bg-white/0 sm:focus:bg-white/35 focus:border-gray-500 sm:focus:border-white/70"
                                   whileFocus={{
                                     boxShadow: "0 0 20px rgba(59, 130, 246, 0.3)"
                                   }}
@@ -274,7 +267,7 @@ export default function CTA() {
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.4, delay: 0.35 }}
                         viewport={{ once: true }}
-                        className="pt-4"
+                        className="pt-2 sm:pt-4"
                       >
                         <motion.button
                           type="submit"
@@ -297,7 +290,7 @@ export default function CTA() {
                           <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl opacity-0 group-hover/btn:opacity-100 blur-lg transition-opacity duration-300"></div>
                           
                           {/* Button content */}
-                          <div className="relative bg-background text-foreground px-6 py-3.5 rounded-xl font-semibold flex items-center justify-center gap-2 group-hover/btn:bg-background/95 transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed">
+                          <div className="relative bg-background text-foreground px-4 sm:px-6 py-2.5 sm:py-3.5 rounded-xl font-semibold text-sm sm:text-base flex items-center justify-center gap-2 group-hover/btn:bg-background/95 transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed">
                             <span>{loading ? 'Submitting...' : 'Get Started Now'}</span>
                             {!loading && (
                               <motion.div
