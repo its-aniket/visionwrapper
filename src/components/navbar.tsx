@@ -6,7 +6,20 @@ import { useTheme } from '../context/ThemeContext'
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [scrollProgress, setScrollProgress] = useState(0)
+  const [, setCurrentPage] = useState('home')
   const { isDark, toggleTheme } = useTheme()
+
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.slice(1) || 'home'
+      setCurrentPage(hash)
+    }
+
+    window.addEventListener('hashchange', handleHashChange)
+    handleHashChange()
+
+    return () => window.removeEventListener('hashchange', handleHashChange)
+  }, [])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,6 +39,21 @@ export default function Navbar() {
       document.body.style.overflow = 'unset'
     }
   }, [isOpen])
+
+  const handleNavClick = (href: string) => {
+    setIsOpen(false)
+    // Navigate to the hash
+    window.location.hash = href
+    
+    // If on the same page, scroll to the element
+    setTimeout(() => {
+      const elementId = href.replace('#', '')
+      const element = document.getElementById(elementId)
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' })
+      }
+    }, 100)
+  }
 
   return (
     <>
@@ -88,34 +116,30 @@ export default function Navbar() {
           className="md:hidden overflow-hidden bg-background border-t border-border/40"
         >
           <div className="container mx-auto px-6 py-4 flex flex-col gap-4">
-            <a 
-              href="#home" 
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors py-2"
-              onClick={() => setIsOpen(false)}
+            <button 
+              onClick={() => handleNavClick('home')}
+              className="text-left text-sm font-medium text-muted-foreground hover:text-foreground transition-colors py-2"
             >
               Home
-            </a>
-            <a 
-              href="#services" 
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors py-2"
-              onClick={() => setIsOpen(false)}
+            </button>
+            <button 
+              onClick={() => handleNavClick('services')}
+              className="text-left text-sm font-medium text-muted-foreground hover:text-foreground transition-colors py-2"
             >
               Services
-            </a>
-            <a 
-              href="#about" 
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors py-2"
-              onClick={() => setIsOpen(false)}
+            </button>
+            <button 
+              onClick={() => handleNavClick('about')}
+              className="text-left text-sm font-medium text-muted-foreground hover:text-foreground transition-colors py-2"
             >
               About
-            </a>
-            <a 
-              href="#contact-page" 
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors py-2"
-              onClick={() => setIsOpen(false)}
+            </button>
+            <button 
+              onClick={() => handleNavClick('contact')}
+              className="text-left text-sm font-medium text-muted-foreground hover:text-foreground transition-colors py-2"
             >
               Contact
-            </a>
+            </button>
             <a 
               href="#contact-page" 
               className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-colors border border-transparent h-9 px-6 rounded-full bg-primary text-primary-foreground hover:bg-primary/90 w-full"

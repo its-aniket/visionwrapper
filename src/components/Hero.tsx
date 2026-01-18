@@ -2,7 +2,15 @@ import { ArrowRight } from 'lucide-react'
 import { motion } from 'framer-motion'
 // @ts-ignore
 import ParticleBackground from './ParticleBackground.jsx'
+
 export default function Hero() {
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('contact')
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
   return (
     <section className="relative z-10 px-4 sm:px-6 md:px-12 min-h-screen flex items-center pt-24 sm:pt-28 pb-12 sm:pb-20 overflow-hidden bg-background">
     <ParticleBackground />
@@ -28,6 +36,7 @@ export default function Hero() {
           
           <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
             <motion.button 
+              onClick={scrollToContact}
               className="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:opacity-90 bg-primary text-primary-foreground border border-primary-border min-h-10 rounded-full px-6 sm:px-8 text-sm sm:text-base h-11 sm:h-12"
               whileHover={{ y: -2 }}
               whileTap={{ y: 0 }}
