@@ -44,6 +44,7 @@ export default function Hero() {
               Start Project
             </motion.button>
             <motion.button 
+              onClick={() => window.location.hash = 'product'}
               className="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:opacity-90 border border-border shadow-xs min-h-10 rounded-full px-6 sm:px-8 text-sm sm:text-base h-11 sm:h-12 group"
               whileHover={{ y: -2 }}
               whileTap={{ y: 0 }}
