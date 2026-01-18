@@ -10,7 +10,7 @@ const projects = [
     slug: 'web-app-development',
     title: 'Web Application Development',
     description: 'Building scalable and high-performance web applications tailored to your needs.',
-    image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=500&h=500&fit=crop',
+    image: '/projects/Screenshot 2026-01-17 010631.png',
     category: 'Development',
   },
   {
@@ -18,7 +18,7 @@ const projects = [
     slug: 'workflow-automation',
     title: 'Workflow Automation',
     description: 'Streamlining operations with intelligent automation solutions.',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&h=500&fit=crop',
+    image: '/projects/Screenshot 2026-01-17 010819.png',
     category: 'Automation',
   },
   {
@@ -26,7 +26,7 @@ const projects = [
     slug: 'ai-ml-solutions',
     title: 'AI & ML Solutions',
     description: 'Custom AI models to unlock insights and drive smarter decisions.',
-    image: 'https://images.unsplash.com/photo-1677442d019cecf16e31293f13ee27ecc0adc4374?w=500&h=500&fit=crop',
+    image: '/projects/Screenshot 2026-01-17 010939.png',
     category: 'AI',
   },
   {
@@ -34,7 +34,7 @@ const projects = [
     slug: 'chatbot-integration',
     title: 'Chatbot Integration',
     description: 'Enhancing customer interactions with advanced AI-driven chatbots.',
-    image: 'https://images.unsplash.com/photo-1526374965328-7f5ae4e8e49e?w=500&h=500&fit=crop',
+    image: '/projects/Screenshot 2026-01-17 011149.png',
     category: 'AI',
   },
   {
@@ -42,7 +42,7 @@ const projects = [
     slug: 'cloud-deployment',
     title: 'Cloud Deployment',
     description: 'Deploying secure and scalable solutions on cloud platforms.',
-    image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=500&h=500&fit=crop',
+    image: '/projects/Screenshot 2026-01-17 011244.png',
     category: 'Cloud',
   },
   {
@@ -50,7 +50,7 @@ const projects = [
     slug: 'data-analytics',
     title: 'Data Analytics',
     description: 'Transforming raw data into actionable insights.',
-    image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=500&h=500&fit=crop',
+    image: '/projects/Screenshot 2026-01-17 011340.png',
     category: 'Analytics',
   },
   {
@@ -58,7 +58,7 @@ const projects = [
     slug: 'mobile-app-development',
     title: 'Mobile App Development',
     description: 'Creating user-friendly mobile applications for iOS and Android.',
-    image: 'https://images.unsplash.com/photo-1512941691920-25bda97b0ecc?w=500&h=500&fit=crop',
+    image: '/projects/Screenshot 2026-01-17 011448.png',
     category: 'Development',
   },
   {
@@ -66,7 +66,7 @@ const projects = [
     slug: 'cybersecurity-solutions',
     title: 'Cybersecurity Solutions',
     description: 'Ensuring robust security for your digital assets.',
-    image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=500&h=500&fit=crop',
+    image: '/projects/Screenshot 2026-01-17 011448.png',
     category: 'Security',
   },
 ];
@@ -109,7 +109,7 @@ const Projects: React.FC = () => {
   return (
     <>
       <Navbar />
-      <main className="w-full flex flex-col mt-8 sm:mt-12 md:mt-40 gap-[3vw] relative bg-white z-10">
+      <main className="w-full flex flex-col mt-8 sm:mt-12 md:mt-40 gap-[3vw] relative bg-background z-10 font-heading">
         <div className="flex flex-col relative">
           {/* Category Header */}
           <div className="flex flex-col w-full px-4 sm:px-6 md:px-12 lg:px-40 py-8 sm:py-12 overflow-hidden">
@@ -117,7 +117,7 @@ const Projects: React.FC = () => {
               initial={{ opacity: 0, y: '100%' }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, ease: 'easeOut' }}
-              className="block text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-[#1C1D20] leading-tight"
+              className="block text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-foreground leading-tight"
             >
               Architecture that speaks
             </motion.span>
@@ -125,7 +125,7 @@ const Projects: React.FC = () => {
               initial={{ opacity: 0, y: '100%' }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.2, ease: 'easeOut' }}
-              className="block mt-2 sm:mt-2.5 text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-[#1C1D20] leading-tight"
+              className="block mt-2 sm:mt-2.5 text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-foreground leading-tight"
             >
               beyond walls.
             </motion.span>
@@ -145,7 +145,7 @@ const Projects: React.FC = () => {
 
           {/* Projects Grid */}
           <div
-            className="columns-1 p-4 sm:p-6 md:p-8 sm:columns-2 md:columns-3 lg:columns-3 gap-4 sm:gap-6 [column-fill:balance]"
+            className="columns-1 p-4 sm:p-6 md:p-8 sm:columns-2 md:columns-3 lg:columns-3 gap-4 sm:gap-6 [column-fill:balance] bg-background"
             style={{ columnFill: 'balance' }}
           >
             {filteredProjects.map((project, index) => (
@@ -158,7 +158,7 @@ const Projects: React.FC = () => {
                 className="break-inside-avoid mb-4 sm:mb-6"
               >
                 <a key={index} href={`/projects/${project.slug}`} >
-                  <div className="relative group rounded-lg sm:rounded-xl overflow-hidden bg-white shadow-md sm:shadow-lg hover:shadow-xl transition-all duration-300">
+                  <div className="relative group rounded-lg sm:rounded-xl overflow-hidden bg-secondary shadow-md sm:shadow-lg hover:shadow-xl transition-all duration-300">
                     <div className="relative">
                       <img
                         src={project.image}
@@ -171,7 +171,7 @@ const Projects: React.FC = () => {
                       {/* Overlay */}
                       <div className="absolute w-full inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition-all duration-300 flex items-end justify-start">
                         <div className="flex w-full items-start flex-col p-3 sm:p-4 bg-linear-to-t from-black/70 to-transparent text-white">
-                          <h3 className="text-white text-base sm:text-lg md:text-xl font-bold text-left line-clamp-2">{project.title}</h3>
+                          <h3 className="text-white text-base sm:text-lg md:text-xl font-bold text-left line-clamp-2 font-heading">{project.title}</h3>
                           <p className="text-white/80 text-xs sm:text-sm mt-1 sm:mt-2 text-left">{project.category}</p>
                         </div>
                       </div>

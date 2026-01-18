@@ -108,15 +108,15 @@ export default function CTA() {
             viewport={{ once: true, margin: "-100px" }}
           >
             {/* Left side - Content */}
-            <motion.div className={isDark ? "text-background" : "text-foreground"}>
+            <motion.div className={isDark ? "text-white" : "text-foreground"}>
               <motion.h2 
-                className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-heading mb-4 sm:mb-6 leading-tight ${isDark ? "text-background" : "text-foreground"}`}
+                className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-heading mb-4 sm:mb-6 leading-tight ${isDark ?"text-black": "text-white"}`}
                 variants={itemVariants}
               >
                 Ready to scale?
               </motion.h2>
               <motion.p 
-                className={`text-sm sm:text-base md:text-lg opacity-85 mb-8 sm:mb-10 leading-relaxed ${isDark ? "text-background" : "text-foreground"}`}
+                className={`text-sm sm:text-base md:text-lg opacity-95 mb-8 sm:mb-10 leading-relaxed ${isDark ?  "text-black": "text-white/90"}`}
                 variants={itemVariants}
               >
                 Join over 500+ enterprise companies transforming their operations with Nexus.
@@ -145,7 +145,7 @@ export default function CTA() {
                     >
                         <CheckCircle className="w-4 h-4 text-green-600 sm:text-green-300" />
                     </motion.div>
-                    <span className={`text-sm sm:text-base font-medium opacity-90 group-hover:opacity-100 transition-opacity ${isDark ? "text-background" : "text-foreground"}`}>
+                    <span className={`text-sm sm:text-base font-medium opacity-95 group-hover:opacity-100 transition-opacity ${isDark ?  "text-black": "text-white/90"}`}>
                       {benefit}
                     </span>
                   </motion.div>
@@ -190,7 +190,7 @@ export default function CTA() {
                               {/* Label */}
                               <motion.label
                                 htmlFor={field.id}
-                                className={`text-xs sm:text-sm font-semibold mb-2 sm:mb-3 opacity-95 flex items-center gap-2 ${isDark ? "text-background" : "text-foreground"}`}
+                                className={`text-xs sm:text-sm font-semibold mb-2 sm:mb-3 flex items-center gap-2 ${isDark ?  "text-black": "text-white/90"}`}
                               >
                                 <motion.div
                                   animate={{
@@ -198,7 +198,7 @@ export default function CTA() {
                                   }}
                                   transition={{ duration: 0.2 }}
                                 >
-                                  <IconComponent className={`w-4 h-4 ${isDark ? "sm:text-white" : ""}`} />
+                                  <IconComponent className={`w-4 h-4 ${isDark ?  "black": "text-white/90"}`} />
                                 </motion.div>
                                 {field.label}
                               </motion.label>
@@ -251,9 +251,9 @@ export default function CTA() {
 
                               {/* Helper text */}
                               <motion.p
-                                className={`text-xs opacity-50 mt-2 ${isDark ? "text-background/80" : "text-foreground/60"}`}
+                                className={`text-xs mt-2 ${isDark ?  "text-black": "text-white/90"}`}
                                 animate={{
-                                  opacity: focusedField === field.id ? 0.6 : 0.4
+                                  opacity: focusedField === field.id ? 0.8 : 0.6
                                 }}
                               >
                                 {field.id === 'email' ? 'We\'ll never share your email' : 'This helps us serve you better'}
@@ -316,7 +316,7 @@ export default function CTA() {
 
                       {/* Helper text */}
                       <motion.p
-                        className={`text-xs opacity-60 text-center font-medium ${isDark ? "text-background" : "text-foreground"}`}
+                        className={`text-xs text-center font-medium ${isDark ? "text-white/80" : "text-foreground"}`}
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
                         transition={{ duration: 0.4, delay: 0.4 }}
@@ -359,10 +359,10 @@ export default function CTA() {
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, delay: 0.3 }}
                     >
-                      <h3 className={`text-3xl font-bold font-heading mb-3 ${isDark ? "text-background" : "text-foreground"}`}>
+                      <h3 className={`text-3xl font-bold font-heading mb-3 ${isDark ? "text-white" : "text-foreground"}`}>
                         Thank You!
                       </h3>
-                      <p className={`text-base leading-relaxed ${isDark ? "text-background/80" : "text-foreground/80"}`}>
+                      <p className={`text-base leading-relaxed ${isDark ? "text-white/90" : "text-foreground/80"}`}>
                         We've received your information and will contact you shortly. Get ready to transform your business!
                       </p>
                     </motion.div>
