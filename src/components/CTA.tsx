@@ -2,6 +2,10 @@ import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { CheckCircle, ArrowRight, User, Building2, Mail } from 'lucide-react'
 import { useTheme } from '../context/ThemeContext'
+import emailjs from '@emailjs/browser'
+
+// Initialize EmailJS with environment variable
+emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY)
 
 export default function CTA() {
   const { isDark } = useTheme()
@@ -9,6 +13,7 @@ export default function CTA() {
     contactName: '',
     companyName: '',
     email: '',
+    message: '',
   })
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
@@ -26,17 +31,48 @@ export default function CTA() {
     e.preventDefault()
     setLoading(true)
     
-    // Simulate form submission
-    setTimeout(() => {
+    try {
+      // Send email using EmailJS
+      const result = await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        {
+          name: formData.contactName,
+          mail: formData.email,
+          message: `Company: ${formData.companyName}\nName: ${formData.contactName}\nEmail: ${formData.email} \nMessage: ${formData.message}`,
+        }
+      )
+
+      if (result.status === 200) {
+        // Send data to Google Sheet
+        await fetch('https://script.google.com/macros/s/AKfycbxFwM0qFcqxYx4s60O_WaGlUFDwF4r3raeYH4OQq93F6gJbHyZGbIoUbg9u6AfwK8i06Q/exec', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            name: formData.contactName,
+            email: formData.email,
+            company: formData.companyName,
+            message: formData.message
+          })
+        }).catch(err => console.error('Failed to save to sheet:', err))
+        
+        setLoading(false)
+        setSubmitted(true)
+        setFormData({ contactName: '', companyName: '', email: '', message: '' })
+        
+        // Reset after 3 seconds
+        setTimeout(() => {
+          setSubmitted(false)
+        }, 3000)
+      }
+    } catch (error) {
+      console.error('Failed to send email:', error)
       setLoading(false)
-      setSubmitted(true)
-      setFormData({ contactName: '', companyName: '', email: '' })
-      
-      // Reset after 3 seconds
-      setTimeout(() => {
-        setSubmitted(false)
-      }, 3000)
-    }, 800)
+      // Optionally show error message to user
+      alert('Failed to send message. Please try again.')
+    }
   }
 
   const containerVariants = {
@@ -72,6 +108,13 @@ export default function CTA() {
       label: 'Company Name',
       placeholder: 'Your Company',
       icon: Building2,
+      type: 'text'
+    },
+    {
+      id: 'message',
+      label: 'Your Message',
+      placeholder: 'I would like to know more about...',
+      icon: Mail,
       type: 'text'
     },
     {

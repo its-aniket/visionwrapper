@@ -4,6 +4,10 @@ import { CheckCircle, ArrowRight } from 'lucide-react'
 import Navbar from '../../components/navbar'
 import Footer from '../../components/Footer'
 import { useSEO } from '../../utils/seo'
+import emailjs from '@emailjs/browser'
+
+// Initialize EmailJS with environment variable
+emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY)
 
 export default function ContactPage() {
   useEffect(() => {
@@ -45,15 +49,48 @@ export default function ContactPage() {
     e.preventDefault()
     setLoading(true)
     
-    setTimeout(() => {
+    try {
+      // Send email using EmailJS
+      const result = await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        {
+          name: formData.name,
+          mail: formData.email,
+          message: `Company: ${formData.company}\nName: ${formData.name}\nEmail: ${formData.email}\nMessage: ${formData.message}`,
+        }
+      )
+
+      if (result.status === 200) {
+        // Send data to Google Sheet
+        await fetch('https://script.google.com/macros/s/AKfycbxFwM0qFcqxYx4s60O_WaGlUFDwF4r3raeYH4OQq93F6gJbHyZGbIoUbg9u6AfwK8i06Q/exec', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            company: formData.company,
+            message: formData.message
+          })
+        }).catch(err => console.error('Failed to save to sheet:', err))
+        
+        setLoading(false)
+        setSubmitted(true)
+        setFormData({ name: '', email: '', company: '', message: '' })
+        
+        // Reset after 3 seconds
+        setTimeout(() => {
+          setSubmitted(false)
+        }, 3000)
+      }
+    } catch (error) {
+      console.error('Failed to send email:', error)
       setLoading(false)
-      setSubmitted(true)
-      setFormData({ name: '', email: '', company: '', message: '' })
-      
-      setTimeout(() => {
-        setSubmitted(false)
-      }, 3000)
-    }, 800)
+      // Optionally show error message to user
+      alert('Failed to send message. Please try again.')
+    }
   }
 
   const containerVariants = {
