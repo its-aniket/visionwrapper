@@ -13,7 +13,7 @@ export default function Footer() {
           <div className="p-4 sm:p-6">
             <div className="text-lg sm:text-2xl font-bold font-heading tracking-tighter mb-4 sm:mb-6">
               <a href="#home" className="text-lg sm:text-2xl font-bold font-heading tracking-tighter cursor-pointer inline-block">
-                <img className="h-auto w-32 sm:w-48 md:w-60" src="/logos/hz_full_logo_no_bg.png" alt="VisionWrapper Logo" />
+                {isDark ? <img className="h-auto w-32 sm:w-48 md:w-60" src="/logos/White_HZ_FULL_LOGO_SVG.svg" alt="Logo" /> : <img className="h-auto w-32 sm:w-48 md:w-60" src="/logos/Black_HZ_FULL_LOGO_SVG.svg" alt="Logo" />}
               </a>
             </div>
             <p className="text-muted-foreground max-w-sm text-sm sm:text-base leading-relaxed">Empowering businesses with cutting-edge technology solutions. Built for the future of enterprise.</p>
