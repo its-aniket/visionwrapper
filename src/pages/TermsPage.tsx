@@ -2,10 +2,21 @@ import { motion } from 'framer-motion'
 import { useEffect } from 'react'
 import Navbar from '../components/navbar'
 import Footer from '../components/Footer'
+import { useSEO } from '../utils/seo'
 
 export default function TermsPage() {
   useEffect(() => {
     window.scrollTo(0, 0)
+    useSEO({
+      title: 'Terms of Service - VisionWrapper',
+      description: 'Review VisionWrapper\'s terms of service to understand the conditions of use for our website and services.',
+      keywords: ['terms of service', 'terms', 'conditions', 'legal'],
+      ogTitle: 'Terms of Service - VisionWrapper',
+      ogDescription: 'Review our terms and conditions of service.',
+      ogImage: 'https://visionwrapper.com/og-image.png',
+      ogUrl: 'https://visionwrapper.com/#/terms',
+      canonical: 'https://visionwrapper.com/#/terms',
+    })
   }, [])
 
   const containerVariants = {

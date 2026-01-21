@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import Navbar from '../components/navbar'
 import Footer from '../components/Footer'
+import { useSEO } from '../utils/seo'
 
 const projects = [
   {
@@ -95,6 +96,19 @@ const RoundedButton: React.FC<RoundedButtonProps> = ({ children, isActive, onCli
 const Projects: React.FC = () => {
   useEffect(() => {
     window.scrollTo(0, 0)
+    useSEO({
+      title: 'Our Projects & Case Studies - VisionWrapper',
+      description: 'Explore our portfolio of successful AI, web development, automation, and cloud deployment projects.',
+      keywords: ['projects', 'case studies', 'portfolio', 'success stories', 'web applications', 'AI solutions'],
+      ogTitle: 'Our Projects & Case Studies - VisionWrapper',
+      ogDescription: 'Explore our successful projects in AI, development, and digital transformation.',
+      ogImage: 'https://visionwrapper.com/og-image.png',
+      ogUrl: 'https://visionwrapper.com/#/product',
+      twitterCard: 'summary_large_image',
+      twitterTitle: 'Our Projects - VisionWrapper',
+      twitterDescription: 'Check out our successful project portfolio.',
+      canonical: 'https://visionwrapper.com/#/product',
+    })
   }, [])
 
   const [category, setCategory] = useState<string>('All')

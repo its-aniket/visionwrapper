@@ -2,10 +2,21 @@ import { motion } from 'framer-motion'
 import { useEffect } from 'react'
 import Navbar from '../components/navbar'
 import Footer from '../components/Footer'
+import { useSEO } from '../utils/seo'
 
 export default function PrivacyPage() {
   useEffect(() => {
     window.scrollTo(0, 0)
+    useSEO({
+      title: 'Privacy Policy - VisionWrapper',
+      description: 'Read VisionWrapper\'s privacy policy to understand how we collect, use, and protect your personal information.',
+      keywords: ['privacy policy', 'data protection', 'privacy', 'terms'],
+      ogTitle: 'Privacy Policy - VisionWrapper',
+      ogDescription: 'Learn about our privacy practices and data protection policies.',
+      ogImage: 'https://visionwrapper.com/og-image.png',
+      ogUrl: 'https://visionwrapper.com/#/privacy',
+      canonical: 'https://visionwrapper.com/#/privacy',
+    })
   }, [])
 
   const containerVariants = {

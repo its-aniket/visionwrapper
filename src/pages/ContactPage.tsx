@@ -3,10 +3,24 @@ import { useState, useEffect } from 'react'
 import { CheckCircle, ArrowRight } from 'lucide-react'
 import Navbar from '../components/navbar'
 import Footer from '../components/Footer'
+import { useSEO } from '../utils/seo'
 
 export default function ContactPage() {
   useEffect(() => {
     window.scrollTo(0, 0)
+    useSEO({
+      title: 'Contact VisionWrapper - Get in Touch',
+      description: 'Contact VisionWrapper for AI solutions, web development, and digital transformation. Get your questions answered by our expert team.',
+      keywords: ['contact us', 'get in touch', 'support', 'inquiry', 'business contact'],
+      ogTitle: 'Contact VisionWrapper - Get in Touch',
+      ogDescription: 'Contact our team for AI solutions and digital transformation services.',
+      ogImage: 'https://visionwrapper.com/og-image.png',
+      ogUrl: 'https://visionwrapper.com/#/contact-page',
+      twitterCard: 'summary',
+      twitterTitle: 'Contact VisionWrapper',
+      twitterDescription: 'Get in touch with our expert team.',
+      canonical: 'https://visionwrapper.com/#/contact-page',
+    })
   }, [])
 
   const [formData, setFormData] = useState({
