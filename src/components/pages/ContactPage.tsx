@@ -1,9 +1,9 @@
 import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
 import { CheckCircle, ArrowRight } from 'lucide-react'
-import Navbar from '../components/navbar'
-import Footer from '../components/Footer'
-import { useSEO } from '../utils/seo'
+import Navbar from '../../components/navbar'
+import Footer from '../../components/Footer'
+import { useSEO } from '../../utils/seo'
 
 export default function ContactPage() {
   useEffect(() => {
@@ -154,7 +154,7 @@ export default function ContactPage() {
                               onFocus={() => setFocusedField('name')}
                               onBlur={() => setFocusedField(null)}
                               required
-                              placeholder="John Doe"
+                              placeholder="Anuj Pandey"
                               className="w-full px-4 sm:px-5 py-2.5 sm:py-3.5 rounded-xl bg-background border border-border text-foreground placeholder:text-muted-foreground text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all duration-300 hover:bg-background/80"
                             />
                             <motion.div
@@ -186,7 +186,7 @@ export default function ContactPage() {
                               onFocus={() => setFocusedField('email')}
                               onBlur={() => setFocusedField(null)}
                               required
-                              placeholder="john@company.com"
+                              placeholder="Anuj@company.com"
                               className="w-full px-4 sm:px-5 py-2.5 sm:py-3.5 rounded-xl bg-background border border-border text-foreground placeholder:text-muted-foreground text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all duration-300 hover:bg-background/80"
                             />
                             <motion.div

@@ -63,8 +63,8 @@ export default function Navbar() {
       />
       <nav className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-border/40">
         <div className="container mx-auto px-6 md:px-12 h-20 flex items-center justify-between">
-          <a href="#home" className="text-xl md:text-2xl font-bold font-heading tracking-tighter cursor-pointer shrink-0">
-            {isDark ? <img className="h-auto w-40 md:w-60" src="/logos/White_HZ_FULL_LOGO_SVG.svg" alt="Logo" /> :  <img className="h-auto w-40 md:w-60" src="/logos/Black_HZ_FULL_LOGO_SVG.svg" alt="Logo" />}
+          <a href="#home" className="text-xl md:text-2xl font-bold font-heading tracking-tighter cursor-pointer shrink-0 flex items-center">
+            <img className="h-16 md:h-20 w-auto" src="/logos/hz_full_logo_no_bg.png" alt="VisionWrapper Logo" />
           </a>
 
           <div className="hidden md:flex items-center gap-8">

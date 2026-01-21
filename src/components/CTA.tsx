@@ -63,7 +63,7 @@ export default function CTA() {
     {
       id: 'contactName',
       label: 'Contact Person Name',
-      placeholder: 'John Doe',
+      placeholder: 'Anuj Pandey',
       icon: User,
       type: 'text'
     },
@@ -77,7 +77,7 @@ export default function CTA() {
     {
       id: 'email',
       label: 'Email Address',
-      placeholder: 'john@company.com',
+      placeholder: 'Anuj@company.com',
       icon: Mail,
       type: 'email'
     },
@@ -216,7 +216,7 @@ export default function CTA() {
                                   onBlur={() => setFocusedField(null)}
                                   required
                                   placeholder={field.placeholder}
-                                  className={`relative w-full px-4 sm:px-5 py-2.5 sm:py-3.5 rounded-xl ${isDark ? "bg-white/0 sm:bg-white/25 border border-gray-300 sm:border-white/50 text-foreground sm:text-background placeholder:text-gray-500 sm:placeholder:text-white/70 hover:bg-white/0 sm:hover:bg-white/30 hover:border-gray-400 sm:hover:border-white/60 focus:bg-white/0 sm:focus:bg-white/35 focus:border-gray-500 sm:focus:border-white/70" : "bg-gray-100 border border-gray-300 text-foreground placeholder:text-gray-400 hover:bg-gray-50 hover:border-gray-400 focus:bg-white focus:border-primary"} text-sm sm:text-base focus:outline-none transition-all duration-300 backdrop-blur-sm`}
+                                  className={`relative w-full px-4 sm:px-5 py-2.5 sm:py-3.5 rounded-xl ${isDark ? "bg-white/0 placeholder:text-black sm:bg-white/25 border border-gray-300 sm:border-white/50 text-foreground sm:text-background placeholder:text-black sm:placeholder:text-white/70 hover:bg-white/0 sm:hover:bg-white/30 hover:border-gray-400 sm:hover:border-white/60 focus:bg-white/0 sm:focus:bg-white/35 focus:border-gray-500 sm:focus:border-white/70" : "bg-gray-100 border border-gray-300 text-foreground placeholder:text-gray-400 hover:bg-gray-50 hover:border-gray-400 focus:bg-white focus:border-primary"} text-sm sm:text-base focus:outline-none transition-all duration-300 backdrop-blur-sm`}
                                   whileFocus={{
                                     boxShadow: "0 0 20px rgba(59, 130, 246, 0.3)"
                                   }}

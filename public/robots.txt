@@ -1,0 +1,16 @@
+# Allow all bots to crawl the website
+User-agent: *
+Allow: /
+
+# Disallow crawling of private areas (if any)
+# Disallow: /admin
+# Disallow: /private
+
+# Crawl delay (optional - set to 0 for no delay)
+# Crawl-delay: 1
+
+# Request rate (optional)
+# Request-rate: 1/1s
+
+# Sitemap location
+Sitemap: https://visionwrapper.com/sitemap.xml

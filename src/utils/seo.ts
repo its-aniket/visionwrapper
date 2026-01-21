@@ -12,6 +12,7 @@ export interface SEOMetadata {
   twitterImage?: string
   canonical?: string
   author?: string
+  jsonLd?: Record<string, any>
 }
 
 export function useSEO(metadata: SEOMetadata) {
@@ -136,5 +137,18 @@ export function useSEO(metadata: SEOMetadata) {
     canonicalLink.rel = 'canonical'
     canonicalLink.href = metadata.canonical
     document.head.appendChild(canonicalLink)
+  }
+
+  // Set JSON-LD structured data
+  if (metadata.jsonLd) {
+    const existingJsonLd = document.querySelector('script[type="application/ld+json"]')
+    if (existingJsonLd) {
+      existingJsonLd.remove()
+    }
+
+    const jsonLdScript = document.createElement('script')
+    jsonLdScript.type = 'application/ld+json'
+    jsonLdScript.textContent = JSON.stringify(metadata.jsonLd)
+    document.head.appendChild(jsonLdScript)
   }
 }

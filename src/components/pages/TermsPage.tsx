@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion'
 import { useEffect } from 'react'
-import Navbar from '../components/navbar'
-import Footer from '../components/Footer'
-import { useSEO } from '../utils/seo'
+import Navbar from '../../components/navbar'
+import Footer from '../../components/Footer'
+import { useSEO } from '../../utils/seo'
 
 export default function TermsPage() {
   useEffect(() => {
@@ -201,9 +201,9 @@ export default function TermsPage() {
                   If you have questions about these Terms of Service or our practices, please contact us at:
                 </p>
                 <div className="bg-secondary rounded-lg p-6 mt-4 space-y-2">
-                  <p className="text-foreground"><strong>Email:</strong> legal@visionwrapper.com</p>
-                  <p className="text-foreground"><strong>Address:</strong> VisionWrapper Inc., 123 Tech Street, San Francisco, CA 94105</p>
-                  <p className="text-foreground"><strong>Phone:</strong> 1-800-VISION-1</p>
+                  <p className="text-foreground"><strong>Email:</strong> visionwrapper@gmail.com</p>
+                  <p className="text-foreground"><strong>Address:</strong> Kothrud, Pune, India</p>
+                  <p className="text-foreground"><strong>Phone:</strong> +91 7249634834</p>
                 </div>
               </section>
             </motion.div>

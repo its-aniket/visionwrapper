@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion'
 import { useEffect } from 'react'
-import Navbar from '../components/navbar'
-import Footer from '../components/Footer'
-import { useSEO } from '../utils/seo'
+import Navbar from '../../components/navbar'
+import Footer from '../../components/Footer'
+import { useSEO } from '../../utils/seo'
 
 export default function PrivacyPage() {
   useEffect(() => {
@@ -177,9 +177,9 @@ export default function PrivacyPage() {
                   If you have questions about this Privacy Policy or our privacy practices, please contact us at:
                 </p>
                 <div className="bg-secondary rounded-lg p-6 mt-4 space-y-2">
-                  <p className="text-foreground"><strong>Email:</strong> privacy@visionwrapper.com</p>
-                  <p className="text-foreground"><strong>Address:</strong> VisionWrapper Inc., 123 Tech Street, San Francisco, CA 94105</p>
-                  <p className="text-foreground"><strong>Phone:</strong> 1-800-VISION-1</p>
+                  <p className="text-foreground"><strong>Email:</strong> visionwrapper@gmail.com</p>
+                  <p className="text-foreground"><strong>Address:</strong> Kothrud, Pune, India</p>
+                  <p className="text-foreground"><strong>Phone:</strong> +91 7249634834</p>
                 </div>
               </section>
 

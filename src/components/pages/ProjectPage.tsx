@@ -1,9 +1,9 @@
 'use client'
 import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import Navbar from '../components/navbar'
-import Footer from '../components/Footer'
-import { useSEO } from '../utils/seo'
+import Navbar from '../../components/navbar'
+import Footer from '../../components/Footer'
+import { useSEO } from '../../utils/seo'
 
 const projects = [
   {
@@ -97,17 +97,44 @@ const Projects: React.FC = () => {
   useEffect(() => {
     window.scrollTo(0, 0)
     useSEO({
-      title: 'Our Projects & Case Studies - VisionWrapper',
-      description: 'Explore our portfolio of successful AI, web development, automation, and cloud deployment projects.',
-      keywords: ['projects', 'case studies', 'portfolio', 'success stories', 'web applications', 'AI solutions'],
-      ogTitle: 'Our Projects & Case Studies - VisionWrapper',
-      ogDescription: 'Explore our successful projects in AI, development, and digital transformation.',
+      title: 'Website Creation & Development Projects - VisionWrapper',
+      description: 'Explore our portfolio of successful website creation, web application development, AI, automation, and cloud deployment projects.',
+      keywords: ['website creation', 'web development projects', 'case studies', 'portfolio', 'success stories', 'web applications', 'AI solutions', 'web design'],
+      ogTitle: 'Website Creation & Development Projects - VisionWrapper',
+      ogDescription: 'Explore our successful website creation and development projects.',
       ogImage: 'https://visionwrapper.com/og-image.png',
       ogUrl: 'https://visionwrapper.com/#/product',
       twitterCard: 'summary_large_image',
-      twitterTitle: 'Our Projects - VisionWrapper',
+      twitterTitle: 'Our Website Creation & Development Projects',
       twitterDescription: 'Check out our successful project portfolio.',
       canonical: 'https://visionwrapper.com/#/product',
+      jsonLd: {
+        '@context': 'https://schema.org',
+        '@type': 'CollectionPage',
+        name: 'Website Creation and Development Projects',
+        description: 'Portfolio of successful website creation and development projects',
+        url: 'https://visionwrapper.com/#/product',
+        mainEntity: {
+          '@type': 'Organization',
+          name: 'VisionWrapper',
+          serviceArea: {
+            '@type': 'Country',
+            name: 'Worldwide'
+          },
+          service: [
+            {
+              '@type': 'Service',
+              name: 'Website Creation',
+              description: 'Professional website creation and design services'
+            },
+            {
+              '@type': 'Service',
+              name: 'Web Application Development',
+              description: 'Scalable and high-performance web applications'
+            }
+          ]
+        }
+      }
     })
   }, [])
 

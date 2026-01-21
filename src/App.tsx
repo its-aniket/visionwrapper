@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react'
-import HomePage from './pages/HomePage'
-import AboutPage from './pages/AboutPage'
-import PrivacyPage from './pages/PrivacyPage'
-import TermsPage from './pages/TermsPage'
-import ContactPage from './pages/ContactPage'
+import HomePage from './components/pages/HomePage'
+import AboutPage from './components/pages/AboutPage'
+import PrivacyPage from './components/pages/PrivacyPage'
+import TermsPage from './components/pages/TermsPage'
+import ContactPage from './components/pages/ContactPage'
 import { ThemeProvider } from './context/ThemeContext'
-import ProjectPage from './pages/ProjectPage'
+import ProjectPage from './components/pages/ProjectPage'
+import WhatsAppButton from './components/WhatsAppButton'
 
 function AppContent() {
   const [currentPage, setCurrentPage] = useState('home')
@@ -42,6 +43,7 @@ function App() {
   return (
     <ThemeProvider>
       <AppContent />
+      <WhatsAppButton />
     </ThemeProvider>
   )
 }

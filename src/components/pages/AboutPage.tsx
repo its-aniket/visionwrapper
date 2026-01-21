@@ -1,9 +1,9 @@
 import { useEffect } from 'react'
-import Navbar from '../components/navbar'
-import About from '../components/About'
-import Footer from '../components/Footer'
-import Features from '../components/Features'
-import { useSEO } from '../utils/seo'
+import Navbar from '../../components/navbar'
+import About from '../../components/About'
+import Footer from '../../components/Footer'
+import Features from '../../components/Features'
+import { useSEO } from '../../utils/seo'
 
 export default function AboutPage() {
   useEffect(() => {
